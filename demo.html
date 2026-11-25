@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="tr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Coin Analysis · Azo.OS</title>
+<style>
+body{max-width:1100px;margin:auto;padding:32px 18px;background:#0a1422;color:#eef4fc;font:16px/1.5 system-ui}
+a{color:#76ece2} select{font:inherit;padding:.4rem} main{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px;margin-top:20px}
+figure{margin:0;padding:12px;background:#132238;border-radius:12px} img{display:block;width:100%;height:auto} figcaption{padding-top:8px}
+</style>
+<h1>Coin Detection</h1>
+<p><strong>Salt okunur demo.</strong> Üç örnek fotoğrafın çıktısı, projenin özgün Python koduyla önceden üretildi. Yükleme ve yeni analiz kapalıdır. Ekrandaki para birimi ve tutarlar deneysel eşiklere dayanır.</p>
+<a href="https://github.com/Azo15/Coin-Analysis-Watershed-HOG">Kaynak kodunu aç ↗</a>
+<p><label for="sample">Örnek fotoğraf </label><select id="sample"><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></p>
+<main>
+<figure><img id="input" src="/samples/1.jpg" alt="Analiz edilen örnek para fotoğrafı"><figcaption>Özgün fotoğraf</figcaption></figure>
+<figure><img id="output" src="/samples/guncel_sonuc_1.jpg" alt="Python kodunun işaretlediği para bölgeleri"><figcaption>Gerçek OpenCV çıktısı</figcaption></figure>
+</main>
+<script>
+const sample = document.querySelector('#sample');
+sample.addEventListener('change', () => {
+  document.querySelector('#input').src = '/samples/' + sample.value + '.jpg';
+  document.querySelector('#output').src = '/samples/guncel_sonuc_' + sample.value + '.jpg';
+});
+</script>
+</html>
